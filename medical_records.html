@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Access Medical Records</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Access Medical Records</h2>
+        <p>View your medical records securely.</p>
+        <div id="records">
+            <p>No records available.</p>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Fetch medical records from the server and display them
+            const records = []; // Replace with actual data fetch
+            if (records.length > 0) {
+                const recordsDiv = document.getElementById('records');
+                recordsDiv.innerHTML = records.map(record => `
+                    <div class="record">
+                        <h3>${record.title}</h3>
+                        <p>${record.details}</p>
+                    </div>
+                `).join('');
+            }
+        });
+    </script>
+</body>
+</html>

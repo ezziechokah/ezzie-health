@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prescription Services</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Prescription Services</h2>
+        <p>Request and receive e-prescriptions.</p>
+        <form id="prescriptionForm">
+            <label for="medication">Medication:</label>
+            <input type="text" id="medication" name="medication" required>
+            <label for="dosage">Dosage:</label>
+            <input type="text" id="dosage" name="dosage" required>
+            <label for="frequency">Frequency:</label>
+            <input type="text" id="frequency" name="frequency" required>
+            <button type="submit">Request Prescription</button>
+        </form>
+        <div id="confirmation" style="display:none;">
+            <p>Prescription requested successfully!</p>
+        </div>
+    </div>
+    <script>
+        document.getElementById('prescriptionForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            document.getElementById('confirmation').style.display = 'block';
+        });
+    </script>
+</body>
+</html>

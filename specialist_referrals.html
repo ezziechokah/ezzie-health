@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Specialist Referrals</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+input, select, textarea, button {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+button {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Specialist Referrals</h2>
+        <p>Get referrals to specialist doctors.</p>
+        <form id="referralForm">
+            <label for="specialist">Select Specialist:</label>
+            <select id="specialist" name="specialist" required>
+                <option value="">--Please choose an option--</option>
+                <option value="cardiologist">Cardiologist</option>
+                <option value="dermatologist">Dermatologist</option>
+                <option value="neurologist">Neurologist</option>
+                <option value="pediatrician">Pediatrician</option>
+                <option value="psychiatrist">Psychiatrist</option>
+                <option value="surgeon">Surgeon</option>
+                <option value="other">Other</option>
+            </select>
+
+            <!-- Other Specialist Field -->
+            <div id="otherSpecialistDiv" style="display: none;">
+                <label for="otherSpecialist">Specify Other Specialist:</label>
+                <input type="text" id="otherSpecialist" name="otherSpecialist" placeholder="Enter Specialist Name">
+            </div>
+            
+            <label for="reason">Reason for Referral:</label>
+            <textarea id="reason" name="reason" required></textarea>
+            <button type="submit">Request Referral</button>
+        </form>
+        <div id="confirmation" style="display:none;">
+            <p>Referral request submitted successfully! We will get back to you soon.</p>
+        </div>
+    </div>
+    <script>
+        document.getElementById('specialist').addEventListener('change', function() {
+            const otherSpecialistDiv = document.getElementById('otherSpecialistDiv');
+            if (this.value === 'other') {
+                otherSpecialistDiv.style.display = 'block';
+            } else {
+                otherSpecialistDiv.style.display = 'none';
+            }
+        });
+
+        document.getElementById('referralForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            document.getElementById('confirmation').style.display = 'block';
+        });
+    </script>
+</body>
+</html>

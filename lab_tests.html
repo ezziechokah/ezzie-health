@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab Tests and Diagnostics</title>
+    <style>
+        /* Reset some default styles */
+body, h1, h2, p, form, input, select, button {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    max-width: 500px;
+    width: 100%;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+p {
+    margin-bottom: 20px;
+    color: #666;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+label {
+    text-align: left;
+    color: #333;
+}
+
+input, select {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+button {
+    padding: 12px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+#confirmation {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+    color: #155724;
+    border-radius: 4px;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Lab Tests and Diagnostics</h2>
+        <p>Order lab tests and view results online.</p>
+        <form id="labTestForm" action="http://localhost:3000/order" method="post">
+            <label for="test">Select Test:</label>
+            <select id="test" name="test" required>
+                <option value="blood_test">Blood Test</option>
+                <option value="urine_test">Urine Test</option>
+            </select>
+            <button type="submit">Order Test</button>
+        </form>
+        <div id="confirmation" style="display:none;">
+            <p>Test ordered successfully!</p>
+        </div>
+    </div>
+    <script>
+        document.getElementById('labTestForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const confirmation = document.getElementById('confirmation');
+            confirmation.style.display = 'block';
+            confirmation.style.opacity = '0';
+            setTimeout(() => { confirmation.style.transition = 'opacity 0.5s';
+            confirmation.style.opacity = '1'; }, 100);
+        });
+    </script>
+</body>
+</html>

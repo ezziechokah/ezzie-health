@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remote Monitoring</title>
+    <style>
+        body, h1, h2, p, form, input, select, button {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            max-width: 500px;
+            width: 100%;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+        p {
+            margin-bottom: 20px;
+            color: #666;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        label {
+            text-align: left;
+            color: #333;
+        }
+        input, select {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        button {
+            padding: 12px;
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        #monitoringData {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+            border-radius: 4px;
+            display: none;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('monitoringForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                const device = document.getElementById('device').value;
+                const monitoringData = document.getElementById('monitoringData');
+
+                // Simulate health metric data
+                const data = {
+                    heartbeat: Math.floor(Math.random() * (100 - 60 + 1)) + 60, // Random heartbeat between 60 and 100 BPM
+                    bloodPressure: `${Math.floor(Math.random() * (120 - 90 + 1)) + 90}/${Math.floor(Math.random() * (80 - 60 + 1)) + 60}`, // Random BP
+                    temperature: (Math.random() * (39 - 36) + 36).toFixed(1), // Random temperature between 36 and 39 °C
+                    bloodSugar: Math.floor(Math.random() * (140 - 70 + 1)) + 70, // Random blood sugar between 70 and 140 mg/dL
+                    spO2: Math.floor(Math.random() * (100 - 95 + 1)) + 95 // Random SpO2 between 95% and 100%
+                };
+
+                if (device === 'fitbit') {
+                    monitoringData.innerHTML = `
+                        <p>Device: ${device}</p>
+                        <p>Heartbeat: ${data.heartbeat} BPM</p>
+                    `;
+                } else if (device === 'apple_watch') {
+                    monitoringData.innerHTML = `
+                        <p>Device: ${device}</p>
+                        <p>Heartbeat: ${data.heartbeat} BPM</p>
+                    `;
+                } else if (device === 'garmin') {
+                    monitoringData.innerHTML = `
+                        <p>Device: ${device}</p>
+                        <p>Heartbeat: ${data.heartbeat} BPM</p>
+                    `;
+                } else if (device === 'omron') {
+                    monitoringData.innerHTML = `
+                        <p>Device: ${device}</p>
+                        <p>Blood Pressure: ${data.bloodPressure} mmHg</p>
+                    `;
+                } else if (device === 'dexcom') {
+                    monitoringData.innerHTML = `
+                        <p>Device: ${device}</p>
+                        <p>Blood Sugar: ${data.bloodSugar} mg/dL</p>
+                    `;
+                } else if (device === 'camera') {
+                    // Example of using camera for heartbeat and SpO2
+                    monitoringData.innerHTML = `
+                        <p>Device: Camera</p>
+                        <p>Heartbeat: ${data.heartbeat} BPM</p>
+                        <p>Oxygen Saturation: ${data.spO2}%</p>
+                    `;
+                }
+
+                monitoringData.style.display = 'block';
+                monitoringData.style.opacity = '0';
+                setTimeout(() => {
+                    monitoringData.style.transition = 'opacity 0.5s';
+                    monitoringData.style.opacity = '1';
+                }, 100);
+            });
+
+            document.getElementById('measureHeartbeat').addEventListener('click', function() {
+                // Implement a method to measure heartbeat using the camera
+                document.getElementById('heartbeatResult').innerText = 'Simulated Heartbeat: 72 BPM';
+            });
+
+            document.getElementById('measureTemperature').addEventListener('click', function() {
+                // Implement a method to measure temperature
+                document.getElementById('temperatureResult').innerText = 'Simulated Temperature: 36.6°C';
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h2>Remote Monitoring</h2>
+        <p>Monitor your health metrics in real-time using connected devices.</p>
+        <form id="monitoringForm">
+            <label for="device">Select Device:</label>
+            <select id="device" name="device" required>
+                <option value="">--Select Device--</option>
+                <option value="fitbit">Fitbit</option>
+                <option value="apple_watch">Apple Watch</option>
+                <option value="garmin">Garmin</option>
+                <option value="omron">Omron Blood Pressure Monitor</option>
+                <option value="dexcom">Dexcom G6 (Glucose Meter)</option>
+                <option value="camera">Camera (Heartbeat & SpO2)</option>
+            </select>
+            <button type="submit">Start Monitoring</button>
+        </form>
+        <div id="monitoringData">
+            <p>Monitoring started successfully!</p>
+        </div>
+        <label for="heartbeat">Measure Heartbeat:</label>
+        <button id="measureHeartbeat">Start</button>
+        <p id="heartbeatResult"></p>
+
+        <label for="temperature">Measure Temperature:</label>
+        <button id="measureTemperature">Start</button>
+        <p id="temperatureResult"></p>
+    </div>
+</body>
+</html>

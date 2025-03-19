@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Registration</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <form id="registerForm">
+            <h2>Patient Registration</h2>
+            <input type="text" name="fullName" placeholder="Full Name" required>Date of birth
+            <input type="date" name="dateOfBirth" placeholder="Date of Birth" required>
+            <input type="text" name="address" placeholder="Address" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="text" name="contactNumber" placeholder="Contact Number" required>
+
+            <!-- Gender selection -->
+            <label for="gender">Gender:</label>
+            <select name="gender" id="gender" required>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+
+            <!-- Identification Verification -->
+            <input type="text" name="idNumber" placeholder="Government-Issued ID Number" required>
+            <label for="idProof">Upload Government-Issued ID:</label>
+            <input type="file" name="idProof" id="idProof" required>
+            <label for="addressProof">Upload Proof of Address:</label>
+            <input type="file" name="addressProof" id="addressProof" required>
+
+            <!-- Medical Information -->
+            <input type="text" name="primaryCarePhysician" placeholder="Primary Care Physician's Name" required>
+            <input type="text" name="physicianContact" placeholder="Physician's Contact Information" required>
+            <input type="text" name="healthInsurance" placeholder="Health Insurance Details (if applicable)">
+            <textarea name="medicalHistory" placeholder="Medical History (current medications, allergies, chronic conditions)" required></textarea>
+            
+            <!-- Account Security -->
+            <input type="password" name="password" placeholder="Password" required>
+            <label for="securityQuestion">Security Question:</label>
+            <select name="securityQuestion" id="securityQuestion" required>
+                <option value="motherMaidenName">What is your mother's maiden name?</option>
+                <option value="firstPet">What was the name of your first pet?</option>
+                <option value="firstSchool">What was the name of your first school?</option>
+            </select>
+            <input type="text" name="securityAnswer" placeholder="Answer" required>
+
+            <!-- Emergency Contact Information -->
+            <input type="text" name="emergencyContactName" placeholder="Emergency Contact Name" required>
+            <input type="text" name="emergencyContactRelationship" placeholder="Relationship" required>
+            <input type="text" name="emergencyContactNumber" placeholder="Emergency Contact Phone Number" required>
+            <input type="email" name="emergencyContactEmail" placeholder="Emergency Contact Email" required>
+            
+            <button type="submit">Register</button>
+        </form>
+    </div>
+    <script>
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = new FormData(e.target);
+            const user = {};
+            formData.forEach((value, key) => {
+                user[key] = value;
+            });
+            localStorage.setItem('user', JSON.stringify(user));
+            alert('Registration successful! Please log in.');
+            window.location.href = 'login.html';
+        });
+    </script>
+</body>
+</html>

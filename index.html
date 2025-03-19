@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ezzie Healthcare</title>
+       <style>
+        #main-heading {
+            color: yellow
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #e9ebec;
+            color: #fff;
+            padding: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+        header img {
+            height: 50px;
+        }
+        nav a {
+            color: #fff;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        .dropdown-content a:hover {background-color: #f1f1f1;}
+        .dropdown:hover .dropdown-content {display: block;}
+        .container {
+            padding: 20px;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            background-color: #007BFF;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            cursor:pointer;
+            border-radius: 5px;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+        footer {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        footer a {
+            color: #fff;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+        section {
+            padding: 20px;
+            background-color: #fff;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        section h2 {
+            color: #007BFF;
+        }
+        .image-container img {
+            width: 100%;
+            height: 400px;
+        }
+        .container {
+            display: flex;
+            align-items: flex-start; /* Align items to the top */
+            margin-top: 20px;
+            position:absolute ;
+            top: 20%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2em; 
+        }
+        .textaccount {
+            margin-top: 1px;
+            position:absolute;
+            top: 1%;
+            font-size: 1.0em; 
+        }
+        .headertexts {
+            margin-top: 20px;
+            position:absolute;
+            top: 5%;
+            font-size: 1.5em;
+            left: 87%;
+        }
+        .line {
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+        }
+
+        /* Animation for fading in */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Delay each line */
+        .line:nth-child(1) {
+            animation-delay: 1s;
+        }
+        .line:nth-child(2) {
+            animation-delay: 2s;
+        }
+        .line:nth-child(3) {
+            animation-delay: 3s;
+        }
+        .line:nth-child(4) {
+            animation-delay: 4s;
+        }
+        .line:nth-child(5) {
+            animation-delay: 5s;
+        }
+        .line:nth-child(6) {
+            animation-delay: 6s;
+        }
+        /* Basic styling for the link */
+        a {
+            text-decoration: none;
+            color: rgb(80, 80, 160);
+            font-size: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* Animation when the link is hovered over */
+        a:hover {
+            color: red; /* Change color */
+            font-size: 25px; /* Increase font size */
+            transform: rotate(10deg); /* Add a slight rotation */
+        }
+
+         /* Add styling for Google Translate */
+         #google_translate_element {
+            margin-top: 20px;
+            text-align: center;
+            left: 70%;
+        }
+        #google_translate_element {
+    text-align: center;
+    margin-top: 10px;
+}
+
+    </style>
+</head>
+<body>
+    <div>
+        <div class="image-container">
+            <img src="image/healthlogo.jpg" alt="Sample Image">
+        </div>
+        <div class="headertexts">
+            <a href="index.html"><b>HOME</b></a><br><br>
+            <a href="#about"><b>ABOUT</b></a>
+        </div>
+        
+        <div class="textaccount">
+       <p class="line">Do you have an Account? <a href="login.html">Sign in</a> to explore</p><p class="line">much in <a href="ezzie_healthcare.html">Ezzie Medicine</a> and explore our</p>
+       <p class="line"><a href="telemedicine_services.html">Telemedicine Services</a>. We are much glad<p class="line">to serve you🤗. Don't worry if you have no</p><p class="line">account. 
+        You can <a href="register.html">register</a> with us and enjoy</p><p class="line">our services together with thousands of users.</p>
+        </div>
+        <div id="google_translate_element">choose your preferred language here</div>
+<script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'en'
+        }, 'google_translate_element');
+    }
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <div class="container">
+        <button class="button" onclick="location.href='community_health.html'">Community Health Initiatives</button><br>
+        <button class="button" onclick="location.href='telemedicine_services.html'">Telemedicine Services</button><br>
+        <button class="button" onclick="location.href='research_data_analysis.html'">Research and Data Analysis</button>
+    </div>
+    </div>
+    <section id="about">
+
+        <h2 id="about-title">About Ezzie Healthcare</h2>
+        <p id="welcome">Welcome to Ezzie Healthcare 🤗</p>
+        <p id="intro"><strong>Ezzie Healthcare</strong> is your ultimate partner in health and well-being. Our mission is to<br>provide comprehensive and accessible healthcare solutions tailored to meet the needs<br>of individuals and communities. With a focus on innovation and compassion, we strive<br>to make high-quality healthcare services available to everyone, everywhere.</p>
+        <p id="services-title"><strong>Ezzie Healthcare Services:</strong></p>
+        <ul>
+            <li id="service1"><strong>Community Health Initiatives:</strong> Engaging and empowering communities through<br>health education, preventive care, and outreach programs designed to enhance<br>the well-being of every member.</li>
+            <li id="service2"><strong>Telemedicine Services:</strong> Bringing the doctor's office to your home. Our<br>telemedicine services offer convenient and timely medical consultations, allowing<br>you to receive expert care from the comfort of your home.</li>
+            <li id="service3"><strong>Mental Health Support:</strong> Mental health is as important as physical health. Our<br>dedicated mental health support services provide professional guidance<br> counseling, and resources to help you maintain a balanced and healthy mind.</li>
+            <li id="service4"><strong>Health Technology:</strong> Leveraging cutting-edge technology to improve health<br>outcomes. From wearable devices to health apps, we ensure you stay connected<br>and informed about your health.</li>
+            <li id="service5"><strong>Research and Data Analysis:</strong> Pioneering research and data analysis to drive<br>advancements in healthcare. Our evidence-based approach ensures that our<br>services are effective, efficient, and up-to-date.</li>
+        </ul>
+        <p id="why-title"><strong>Why Choose Ezzie Healthcare?</strong></p>
+        <ul>
+            <li id="why1"><strong>Accessible:</strong> We break down barriers to ensure everyone has access to the care they need.</li>
+            <li id="why2"><strong>Innovative:</strong> Our use of the latest technology keeps us at the forefront of healthcare solutions.</li>
+            <li id="why3"><strong>Compassionate:</strong> We care deeply about our patients and their well-being.</li>
+            <li id="why4"><strong>Comprehensive:</strong> From physical health to mental wellness, we cover all aspects of healthcare.</li>
+        </ul>
+        <p id="join"><b>Join us at Ezzie Healthcare and embark on a journey towards a healthier, happier life. Together, we can make a difference in the world of health and wellness.</b></p>
+    </section>
+    <footer>
+        <a href="#jobs">Jobs</a>
+        <a href="#career">Career</a>
+        <a href="#privacy">Privacy</a>
+        <a href="#accounts">Accounts</a>
+    </footer>
+</body>
+</html>
